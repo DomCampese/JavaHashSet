@@ -92,8 +92,7 @@ public class MyHashSet implements HS_Interface  {
     private int hashOf(String str) {
         // hash function from project 7
         int result = 0;
-        for (int i = 0; i < str.length(); i++) 
-        {
+        for (int i = 0; i < str.length(); i++) {
             result ^= str.charAt(i);
             result *= 17;
         }
@@ -129,9 +128,9 @@ class Node {
         }
         Node curr = head;
         // get reference to last node
-        while (curr.next != null)
+        while (curr.next != null) {
             curr = curr.next;
- 
+        }
         curr.next = new Node(data);
     }
 
@@ -142,8 +141,9 @@ class Node {
    
     static boolean remove(Node head, String key) {
         // Base cases
-        if (head == null)
+        if (head == null) {
             return false;
+        }
         if (head.data.equals(key)) {
             // remove head elem
             if (head.next == null) {
@@ -160,9 +160,9 @@ class Node {
             prev = curr;
             curr = curr.next;
         }
-        if (curr == null)
+        if (curr == null) {
             return false;
- 
+        }
         // link previous and next skipping deadnode
         prev.next = curr.next; 
         return true;
@@ -173,15 +173,17 @@ class Node {
     }
  
     static Node search(Node head, String key) {
-        if (head == null) 
+        if (head == null) {
             return null;
-        if (head.next == null)
+        }
+        if (head.next == null) {
             return head.data.equals(key) ? head : null; 
-         
+        }
         Node curr = head;
         while (curr != null) {
-            if (curr.data.equals(key))
+            if (curr.data.equals(key)) {
                 return curr;
+            }
             curr = curr.next;
         }
         return null;
@@ -190,5 +192,4 @@ class Node {
     public String toString() {
         return "" + data;
     } 
- 
 }
